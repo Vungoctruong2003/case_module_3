@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BillController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
@@ -36,6 +37,7 @@ Route::get('/auth/redirect/{provider}', [SocialController::class, 'redirect']);
 Route::get('/callback/{provider}', [SocialController::class, 'callback']);
 
 
+Route::get('/product_detail/{id}',[ProductController::class,'product_detail'])->name('product_detail');
 
 
 Route::middleware('auth')->group(function () {
@@ -49,13 +51,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/cart_list',[CartController::class,'cart_list'])->name('cart-list');
         Route::get('/add_cart/{id}',[CartController::class,'addToCart'])->name('addCart');
         Route::get('/remove_card/{id}',[CartController::class,'remove'])->name('remove');
-        Route::get('/product_detail/{id}',[ProductController::class,'product_detail'])->name('product_detail');
+        Route::get('/check_out/',[ProductController::class,'checkout'])->name('check_out');
+        Route::post('/check_out/',[BillController::class,'addBill'])->name('add_bill');
 
 
     });
     Route::prefix('admin')->group(function () {
         Route::get('/list_user', [UserController::class, 'index'])->name('admin.list_user');
         Route::get('{id}/delete_user', [UserController::class, 'destroy'])->name('admin.delete_user');
+        Route::get('/user_buy', [BillController::class, 'viewProductBuy'])->name('admin.list_bills');
+        Route::get('/delete_bill/{id}', [BillController::class, 'deleteBill'])->name('admin.delete_bill');
 
         Route::group(['prefix' => 'products'], function () {
             Route::get('/', [ProductController::class, 'index'])->name('products.index');

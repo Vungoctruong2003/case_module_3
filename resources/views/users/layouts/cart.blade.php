@@ -274,7 +274,6 @@
             @php($products = session('cart') ?? $products = [] )
             @php($counts = session('count') ?? $counts = [] )
             @php($total=0 )
-
             @foreach( $products as $key => $product)
                 <input type="hidden" value="{{$total += $counts[$key]*$product->price}}">
                 <tr>
@@ -283,7 +282,7 @@
                             <a class="product-thumb" href="#"><img src="{{ asset('storage/' . $product->image) }}"
                                                                    alt="Product"></a>
                             <div class="product-info">
-                                <h4 class="product-title"><a href="#">{{ $product->name }}</a></h4><span><em>Size:</em> 10.5</span><span><em>Color:</em> Dark Blue</span>
+                                <h4 class="product-title"><a href="#">{{ $product->name }}</a></h4><span><em>Size:</em>   </span>
                             </div>
                         </div>
                     </td>
@@ -292,7 +291,7 @@
                             <input type="number" class="form-control" value="{{$counts[$key]}}">
                         </div>
                     </td>
-                    <td class="text-center text-lg text-medium">{{number_format($product->price*$counts[$key])}}VND
+                    <td class="text-center text-lg text-medium">{{number_format($product->price)}}VND
                     </td>
                     <td class="text-center"><a class="remove-from-cart" href="{{route('remove',$key)}}"
                                                data-toggle="tooltip" title="" data-original-title="Remove item"><i
@@ -306,7 +305,7 @@
     <div class="shopping-cart-footer">
         <div class="column"><a class="btn btn-outline-secondary" href="{{route('home')}}"><i
                     class="icon-arrow-left"></i>&nbsp;Tiếp tục mua sắm</a></div>
-        <div class="column"><a class="btn btn-success" href="#">Mua hàng</a></div>
+        <div class="column"><a class="btn btn-success" href="{{route('check_out')}}">Mua hàng</a></div>
     </div>
 </div>
 

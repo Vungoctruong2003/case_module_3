@@ -18,7 +18,7 @@ class ProductController extends Controller
         if (!Gate::allows('admin')) {
             abort(403);
         }
-        $products = Product::paginate(6);
+        $products = Product::paginate(5);
         return view('admin.layouts.products', compact('products'));
     }
 
@@ -112,6 +112,9 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $categories = Category::all();
         return view('users.layouts.product_detail', compact('product', 'categories'));
+    }
+    public function checkout(){
+        return view('users.layouts.checkout');
     }
 
 }

@@ -35,13 +35,13 @@
                         <nav class="navbar">
                             <ul class="navbar_menu">
                                 @if(!(\Illuminate\Support\Facades\Auth::user()->name??""))
-                                    <li><a href="{{route('home')}}">home</a></li>
-                                    <li><a href="{{route('contact')}}">contact</a></li>
-                                    <li><a href="{{route('user.formRegister')}}">sing up</a></li>
-                                    <li><a href="{{route('user.formSingIn')}}">sing in</a></li>
+                                    <li><a href="{{route('home')}}">Trang chủ</a></li>
+                                    <li><a href="{{route('contact')}}">Liên hệ</a></li>
+                                    <li><a href="{{route('user.formRegister')}}">Đăng kí</a></li>
+                                    <li><a href="{{route('user.formSingIn')}}">Đăng nhập</a></li>
                                 @else
-                                    <li><a href="{{route('home')}}">home</a></li>
-                                    <li><a href="{{route('contact')}}">contact</a></li>
+                                    <li><a href="{{route('home')}}">Trang chủ</a></li>
+                                    <li><a href="{{route('contact')}}">Liên hệ</a></li>
                                 @endif
                             </ul>
                             <ul class="navbar_user">
@@ -95,7 +95,7 @@
                         <ul class="footer_nav">
                             <li><a href="#">Blog</a></li>
                             <li><a href="#">FAQs</a></li>
-                            <li><a href="contact.html">Contact us</a></li>
+                            <li><a href="{{route('contact')}}">Contact us</a></li>
                         </ul>
                     </div>
                 </div>

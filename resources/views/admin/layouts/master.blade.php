@@ -83,6 +83,21 @@
                             </a>
                         </nav>
                     </div>
+                    <div class="sb-sidenav-menu-heading"></div>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
+                       aria-expanded="false" aria-controls="collapsePages">
+                        <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                        Quản lí đơn hàng
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
+                         data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                            <a class="nav-link collapsed" href="{{route('admin.list_bills')}}">
+                                Danh sách đơn hàng
+                         </a>
+                        </nav>
+                    </div>
 
                     <div class="sb-sidenav-menu-heading"></div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
